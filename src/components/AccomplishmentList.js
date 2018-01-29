@@ -14,6 +14,7 @@ const AccomplishmentList = (props) => (
         <Accomplishment key={el}
         accompText={el}
         count={i + 1}
+        handleDeleteAccomplishment={props.handleDeleteAccomplishment}
         />
       ))
     }

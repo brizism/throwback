@@ -13,6 +13,12 @@ export default class Throwback extends React.Component {
     this.setState(() => ({ accomplishments: [] }));
   }
 
+  handleDeleteAccomplishment = (accomplishment) => {
+    this.setState((prevState) => ({
+      accomplishments: prevState.accomplishments.filter(el => accomplishment !== el)
+     }))
+  }
+
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.accomplishments.length);
     const accomplishment = this.state.accomplishments[randomNum];
@@ -52,6 +58,7 @@ export default class Throwback extends React.Component {
           />
         <AccomplishmentList
           accomplishments={this.state.accomplishments}
+          handleDeleteAccomplishment={this.handleDeleteAccomplishment}
           handleDeleteAccomplishments={this.handleDeleteAccomplishments}
         
         />
