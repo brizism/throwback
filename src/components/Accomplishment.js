@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Accomplishment = () => (
+const Accomplishment = (props) => (
   <div>
-    <p>Accomplishment 1</p>
+    <p>{props.count}. {props.accompText}</p>
   </div>
 )
 
