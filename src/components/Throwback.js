@@ -27,6 +27,12 @@ export default class Throwback extends React.Component {
   }
 
   handleAddAccomplishment = (accomplishment) => {
+    if(!accomplishment){
+      return 'It looks like your accomplishment is empty. Please enter one!';
+    } else if(this.state.accomplishments.indexOf(accomplishment) > -1){
+      return 'It looks like this accomplisment is repeated. Change it up a bit :)';
+    };
+    
     this.setState((prevState) => ({ accomplishments: prevState.accomplishments.concat([accomplishment]) }))
   }
 
