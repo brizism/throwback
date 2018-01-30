@@ -1,30 +1,13 @@
 import React from 'react';
+import AccomplishmentForm from './AccomplishmentForm';
 
-export default class AddAccomplishment extends React.Component {
-  state = {
-    error: undefined
-  }
-  handleAddAccomplishment = (e) => {
-    e.preventDefault();
-    const accomplishment = e.target.elements.accomplishment.value.trim();
-    const error = this.props.handleAddAccomplishment(accomplishment);
+const AddAccomplishment = (props) => (
+  <div>
+    <AccomplishmentForm handleAddAccomplishment={props.handleAddAccomplishment}
 
-    this.setState(() => ({ error }))
-    
-    if(!error){
-      e.target.elements.accomplishment.value = '';
-    }
-  }
+    />
+  </div>
+   
+)
 
-  render(){
-    return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.handleAddAccomplishment} >
-          <input type="text" name="accomplishment" />
-          <button>Add Accomplishment</button>
-        </form>
-      </div>
-    )
-  }
-}
+export default AddAccomplishment;
